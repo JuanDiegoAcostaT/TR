@@ -51,7 +51,7 @@ class Positions extends Component {
                 alt={index}
               />
               <span className="top-name">{vendor.name}</span>
-              <span className="top-value">${vendor.amount | 0 }</span>
+              <span className="top-value">${vendor.amount == null ? vendor.amount = 0 : vendor.amount.toFixed(2) }</span>
             </div>
           </Animated>
         ))}
