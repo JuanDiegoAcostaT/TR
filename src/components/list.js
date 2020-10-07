@@ -4,6 +4,7 @@ import axios from "axios";
 import Pusher from "pusher-js";
 import Positions from "./positions";
 import DetailsVendor from "./detailsVendor";
+import LoadingSpinner from "../components/spinner";
 
 class List extends Component {
   constructor(props) {
@@ -23,28 +24,36 @@ class List extends Component {
       showModal: false,
       sale: null,
       url: `https://octoplus.app/api/v1/ranking/employees${location.pathname}`,
+      loading: true,
+      error: null,
+      data: undefined,
     };
     this.getTopOrder();
     this.handleShowDetails = this.handleShowDetails.bind(this);
     this.handleCloseDetails = this.handleCloseDetails.bind(this);
   }
 
-
-
   getTopOrder = () => {
     return new Promise((res, rej) => {
-      axios
-        .get(this.state.url)
-        // .get("http://127.0.0.1:8000/api/v1/ranking")
-        .then((response) => {
-          const ranking = response.data.rankings;
-          console.log(ranking)
-          this.setState({ top: ranking });
-          this.setState({
-            top: this.state.top.sort((a, b) => b.amount - a.amount),
+      this.setState({ loading: true, error: null });
+      try {
+        axios
+          .get(this.state.url)
+          // .get("http://127.0.0.1:8000/api/v1/ranking")
+          .then((response) => {
+            const ranking = response.data.rankings;
+        this.setState({ loading: false });
+
+            console.log(ranking);
+            this.setState({ top: ranking });
+            this.setState({
+              top: this.state.top.sort((a, b) => b.amount - a.amount),
+            });
           });
-        })
-        .catch((error) => console.error(error));
+      } catch (error) {
+        this.setState({ loading: false, error: error });
+        console.log(error.message);
+      }
 
       let pusher = new Pusher("ee2aeaa045223c5cd1c5", {
         cluster: "us2",
@@ -91,39 +100,45 @@ class List extends Component {
 
   render() {
     const { top, idVendor, showModal, vendor, sale } = this.state;
-    return (
-      <div>
-        <Row gutter={10} type="flex" justify="space-around">
-          <Positions
-            top={top.slice(0, 14)}
-            indexStart={1}
-            id={idVendor}
-            showDetails={this.handleShowDetails}
-            sale={sale}
-          />
-          <Positions
-            top={top.slice(14, 32)}
-            indexStart={15}
-            id={idVendor}
-            showDetails={this.handleShowDetails}
-            sale={sale}
-          />
-          <Positions
-            top={top.slice(32, 50)}
-            indexStart={33}
-            id={idVendor}
-            showDetails={this.handleShowDetails}
-            sale={sale}
-          />
-        </Row>
+    console.log(this.state.loading)
+    if (!this.state.loading) {
+      return (
+        <div>
+          <Row gutter={10} type="flex" justify="space-around">
+            <Positions
+              top={top.slice(0, 14)}
+              indexStart={1}
+              id={idVendor}
+              showDetails={this.handleShowDetails}
+              sale={sale}
+            />
+            <Positions
+              top={top.slice(14, 32)}
+              indexStart={15}
+              id={idVendor}
+              showDetails={this.handleShowDetails}
+              sale={sale}
+            />
+            <Positions
+              top={top.slice(32, 50)}
+              indexStart={33}
+              id={idVendor}
+              showDetails={this.handleShowDetails}
+              sale={sale}
+            />
+          </Row>
 
-        <DetailsVendor
-          show={showModal}
-          close={this.handleCloseDetails}
-          vendor={vendor}
-        />
-      </div>
-    );
+          <DetailsVendor
+            show={showModal}
+            close={this.handleCloseDetails}
+            vendor={vendor}
+          />
+        </div>
+      );
+    }
+    if (this.state.loading) {
+      return <LoadingSpinner />;
+    }
   }
 }
 

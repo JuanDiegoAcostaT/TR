@@ -10,16 +10,19 @@ import "../App.css";
 function Main() {
   return (
     <div className="App">
-      <div className="container">
-        <Link to="/conversion">
-          <h2 className="title">Conversion</h2>
-        </Link>
-        <Link to="/sale">
-          <h2 className="title">Sale</h2>
-        </Link>
-        <Link to="/recoup">
-          <h2 className="title">Recoup</h2>
-        </Link>
+      <div className="main">
+        <div className="title"  style={{ paddingTop : "70px" }} >Selecciona tu equipo</div>
+        <div className="container">
+          <Link to="/conversion">
+            <h2 className="title">Conversion</h2>
+          </Link>
+          <Link to="/sale">
+            <h2 className="title">Sale</h2>
+          </Link>
+          <Link to="/recoup">
+            <h2 className="title">Recoup</h2>
+          </Link>
+        </div>
       </div>
     </div>
   );
