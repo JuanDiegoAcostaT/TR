@@ -15,6 +15,12 @@ function App() {
           render={(props) => <Home {...props} />}
           path={["/conversion", "/sale", "/recoup"]}
         />
+        <Route exact path="/:id">
+          <Home />
+        </Route>
+        <Route path="*">
+          <Home />
+        </Route>
       </Switch>
     </Router>
   );
