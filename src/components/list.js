@@ -38,6 +38,7 @@ class List extends Component {
         // .get("http://127.0.0.1:8000/api/v1/ranking")
         .then((response) => {
           const ranking = response.data.rankings;
+          console.log(ranking)
           this.setState({ top: ranking });
           this.setState({
             top: this.state.top.sort((a, b) => b.amount - a.amount),
@@ -75,7 +76,7 @@ class List extends Component {
     });
 
     this.setState({
-      top: amount.sort((a, b) => b.amount - a.amount),
+      top: sale.sort((a, b) => b.amount - a.amount),
       sale: id,
     });
   }
