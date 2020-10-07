@@ -1,0 +1,161 @@
+.App {
+  background: #282c34;
+  height: 100vh;
+  background: url("assets/fondo.jpg") no-repeat center fixed;
+  background-size: cover;
+  overflow: auto;
+}
+.title {
+  text-align: center;
+  font-family: "Sriracha", cursive;
+  color: black;
+  text-shadow: -2px 0 #eceff1, 0 1px #eceff1, 1px 0 #eceff1, 0 -1px #eceff1;
+  font-size: 30px;
+  margin: 5px 0px;
+  font-weight: bold;
+}
+
+.container {
+  height: 88%;
+}
+
+.top-1,
+.top-2,
+.top-3 {
+  padding: 11px 10px;
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+
+.top-1 .top-number,
+.top-2 .top-number,
+.top-3 .top-number {
+  height: 40px;
+  -webkit-filter: drop-shadow(2px 3px 1px black);
+  filter: drop-shadow(2px 3px 1px black);
+}
+
+.top-value {
+  float: right;
+  font-family: "Sriracha", cursive;
+  font-weight: bold;
+  color: black;
+  font-size: 13px;
+  text-shadow: -3px 0 #eceff1, 0 1px #eceff1, 1px 0 #eceff1, 0 -1px #eceff1;
+}
+
+.top-avatar {
+  height: 50px;
+  margin-left: 10px;
+}
+.top-name {
+  font-weight: bold;
+  margin-left: 10px;
+  letter-spacing: 1px;
+  font-family: "Architects Daughter", cursive;
+  font-size: 25px;
+  margin-left: 15px;
+  color: black;
+  text-shadow: -3px 0 #eceff1, 0 1px #eceff1, 1px 0 #eceff1, 0 -1px #eceff1;
+}
+.top-1 {
+  background: rgba(247, 220, 111, 0.7);
+  border: 2px solid #ffd54f;
+}
+.top-2 {
+  background: rgba(210, 208, 201, 0.7);
+  border: 2px solid #78909c;
+}
+.top-3 {
+  background: rgba(249, 178, 112, 0.7);
+  border: 2px solid #ff7043;
+}
+.top-more {
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid #b0bec5;
+  padding: 0.2px 10px;
+  padding-bottom: 1px;
+  margin-bottom: 2px;
+}
+
+.top-more .top-avatar {
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+}
+
+.top-number {
+  font-family: numbermariokart;
+  color: black;
+  text-shadow: -1px 0 #eceff1, 0 1px #eceff1, 1px 0 #eceff1, 0 -1px #eceff1;
+  font-size: 16px;
+}
+
+.top-more .top-name {
+  font-size: 17.5px;
+}
+
+.top-more .top-value {
+  float: right;
+  font-family: "Sriracha", cursive;
+  font-weight: bold;
+  font-size: 13px;
+  color: black;
+  text-shadow: -3px 0 #eceff1, 0 1px #eceff1, 1px 0 #eceff1, 0 -1px #eceff1;
+}
+
+.vendor {
+  background: rgba(133, 193, 233, 0.8);
+  border: 2px solid #3498db;
+  cursor: pointer;
+}
+.vendor:hover {
+  background: rgba(93, 173, 226, 0.8);
+  border: 2px solid #2874a6;
+}
+.vendor .top-number,
+.vendor .top-name,
+.vendor .top-value {
+  color: #03253a;
+}
+
+.modalBody {
+  text-align: center;
+}
+.modalBody img {
+  background: white;
+  border: 5px solid #51aae6;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  top: -100px;
+  position: absolute;
+  margin-left: -90px;
+  padding: 20px;
+}
+.modalBody .details {
+  margin-top: 90px;
+}
+.modalBody .name {
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-family: "Architects Daughter", cursive;
+  font-size: 30px;
+  color: black;
+  text-shadow: -2px 0 #ccd1d1, 0 1px #ccd1d1, 1px 0 #ccd1d1, 0 -1px #ccd1d1;
+}
+.modalBody .value {
+  font-family: "Sriracha", cursive;
+  color: #3498db;
+  font-size: 30px;
+  text-shadow: -2px 0 #aed6f1, 0 1px #aed6f1, 1px 0 #aed6f1, 0 -1px #aed6f1;
+}
+.modalBody .back {
+  margin-top: 50px;
+  border-radius: 20px;
+  padding: 0 40px;
+}
+.modalBody .back i {
+  margin-right: 5px;
+}
