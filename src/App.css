@@ -11,8 +11,16 @@
   color: black;
   text-shadow: -2px 0 #eceff1, 0 1px #eceff1, 1px 0 #eceff1, 0 -1px #eceff1;
   font-size: 30px;
-  margin: 5px 0px;
+  margin:  -50px 10px 40px 10px;
   font-weight: bold;
+}
+
+.back {
+    font-family: "Sriracha", cursive;
+    color: black;
+    text-shadow: -2px 0 #eceff1, 0 1px #eceff1, 1px 0 #eceff1, 0 -1px #eceff1;
+    margin: 10px 10px;
+    font-weight: bold;
 }
 
 .container {
@@ -166,4 +174,16 @@
   align-items: center;
 }
 
+@media (max-width: 480px) {
+.prueba{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.back {
+  margin: 30px 10px ;
+}
+
+}

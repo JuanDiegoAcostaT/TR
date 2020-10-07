@@ -4,7 +4,6 @@ import "../App.css";
 import { Animated } from "react-animated-css";
 
 function DetailsVendor(props) {
-  console.log(props)
   const images = require.context("../assets/avatar3", true);
   const avatar = props.vendor ? props.vendor.avatar : 1;
 

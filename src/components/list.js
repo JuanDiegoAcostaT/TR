@@ -34,7 +34,6 @@ class List extends Component {
         .get(this.state.url)
         // .get("http://127.0.0.1:8000/api/v1/ranking")
         .then((response) => {
-          console.log(response)
           const ranking = response.data.rankings;
           this.setState({ top: ranking });
         })
