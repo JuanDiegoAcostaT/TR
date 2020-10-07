@@ -28,6 +28,9 @@ class List extends Component {
     this.handleShowDetails = this.handleShowDetails.bind(this);
     this.handleCloseDetails = this.handleCloseDetails.bind(this);
   }
+
+
+
   getTopOrder = () => {
     return new Promise((res, rej) => {
       axios
@@ -36,6 +39,9 @@ class List extends Component {
         .then((response) => {
           const ranking = response.data.rankings;
           this.setState({ top: ranking });
+          this.setState({
+            top: this.state.top.sort((a, b) => b.amount - a.amount),
+          });
         })
         .catch((error) => console.error(error));
 
@@ -45,7 +51,6 @@ class List extends Component {
       });
       let channel = pusher.subscribe("rankingUpdateTissini");
       channel.bind("App\\Providers\\RankingUpdate", (data) => {
-        console.log(data);
         this.update(data.item.id, data.item.amount);
       });
     });
@@ -60,23 +65,23 @@ class List extends Component {
     audio.play();
 
     let sale = this.state.top;
+
     sale.map((vendor, index) => {
       if (vendor.id === id) {
         // return
-        vendor.value = amount;
+        vendor.amount = amount;
       }
       return vendor;
     });
 
     this.setState({
-      top: sale.sort((a, b) => b.value - a.value),
+      top: amount.sort((a, b) => b.amount - a.amount),
       sale: id,
     });
   }
 
   handleShowDetails(vendor) {
     this.setState({ showModal: true, vendor: vendor });
-    
   }
 
   handleCloseDetails() {
