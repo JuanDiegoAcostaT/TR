@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import List from "../components/list";
 import { Row, Col } from "antd";
 import { Animated } from "react-animated-css";
+import { Link } from 'react-router-dom'
 
 function Home(props) {
   let { id } = useParams();
@@ -17,7 +18,7 @@ function Home(props) {
       <Animated animationIn="fadeInDown">
         <div className="prueba">
         <div className="back" onClick={handleBack}>
-          <a href="/" ><h1>Back</h1></a>
+          <Link to="/" ><h1>Back</h1></Link>
         </div>
         <div className="title">
           TISSINI RANKING{" "}
